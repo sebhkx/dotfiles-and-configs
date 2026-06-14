@@ -1,0 +1,113 @@
+# =====================================
+# 🧠 macOS System Files
+# =====================================
+.DS_Store
+.AppleDouble
+.LSOverride
+.Spotlight-V100
+.Trashes
+._*
+Icon?
+ehthumbs.db
+Thumbs.db
+
+# =====================================
+# 🧩 Editor / IDE Config Files
+# =====================================
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+*.code-workspace
+*.swp
+*.swo
+
+# =====================================
+# 🧱 Node / Frontend Projects
+# =====================================
+node_modules/
+dist/
+build/
+.cache/
+out/
+coverage/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# =====================================
+# 🧰 Python / Virtualenv (if used)
+# =====================================
+__pycache__/
+*.py[cod]
+*.pyo
+venv/
+.env/
+env/
+*.env
+
+# =====================================
+# 🪄 Static Site Generators (GitHub Pages, Jekyll, MkDocs, etc.)
+# =====================================
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+.mkdocs/
+.DS_Store
+*.lock
+
+# =====================================
+# 🔐 Environment & Secrets
+# =====================================
+.env
+.env.local
+.env.*.local
+*.key
+*.pem
+*.crt
+*.cert
+*.p12
+
+# =====================================
+# ⚙️ System & Misc
+# =====================================
+*.log
+*.tmp
+*.bak
+*.old
+*.orig
+*.swp
+*.swo
+*.lock
+*.pid
+*.seed
+*.pid.lock
+*.pid.*
+*.pidfile
+
+# =====================================
+# 🪶 macOS Archive Artifacts
+# =====================================
+*.zip
+*.tar
+*.tar.gz
+*.tgz
+*.rar
+
+# =====================================
+# 🪴 Optional: Remove lockfiles (if not needed)
+# =====================================
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# =====================================
+# 🧾 Output / Temporary Directories
+# =====================================
+tmp/
+temp/
+logs/
+cache/
+__generated__/
