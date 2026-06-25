@@ -25,7 +25,7 @@ A collection of personal configuration files, `zsh` environment setups, and cust
     └── test
         └── watcher.lua
 ├── karabiner-elements (~/.config/karabiner/assets/complex_modifications)
-    └──
+    └── caps-f18.json
 ```
 
 ## Bootstrapping chezmoi
