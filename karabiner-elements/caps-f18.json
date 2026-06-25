@@ -1,0 +1,15 @@
+{
+  "description": "Caps tap = Caps Lock, hold = F18",
+  "manipulators": [
+    {
+      "from": {
+        "key_code": "caps_lock",
+        "modifiers": { "optional": ["any"] }
+      },
+      "parameters": { "basic.to_if_alone_timeout_milliseconds": 150 },
+      "to": [{ "key_code": "f18" }],
+      "to_if_alone": [{ "key_code": "caps_lock" }],
+      "type": "basic"
+    }
+  ]
+}

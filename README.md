@@ -7,15 +7,28 @@ A collection of personal configuration files, `zsh` environment setups, and cust
 ## 📦 Repository Structure
 
 ```text
-├── .zshrc                  # Shell environment, aliases, and functions
-└── Raycast scripts/                # Custom standalone utilities
+├── .zshrc                    # Shell environment, aliases, and functions
+└── Raycast scripts/          # Custom standalone utilities
     └── auto-day-name-date.sh # Dynamic natural language date parser
-    └── corner.sh # use hammerspoon to move mouse to window corner (no need to hunt for it and just drag)
-    └── down-dock.sh /left-dock.sh # cos I keep shifting my dock for multi monitors
-    └── mirror.sh # mirror images backup
+    └── corner.sh             # use hammerspoon to move mouse to window corner (no need to hunt for it and just drag)
+    └── down-dock.sh / left-dock.sh # cos I keep shifting my dock for multi monitors
+    └── mirror.sh             # mirror images backup
+├── .hammerspoon
+    └── init.lua
+    └── modules
+        └── capslock.lua        # used with karabiner to turn hold CAPS + UIO JKL M to 456 123 0
+                                # numpad cluster [789 456 123 0] for numrow keyboard
+        └── auto-hide-apps.lua
+        └── current-wattage.lua
+        └── drag-to-space.lua
+        └── preview-snap.lua
+    └── test
+        └── watcher.lua
+├── karabiner-elements (~/.config/karabiner/assets/complex_modifications)
+    └──
 ```
 
-## Bootstrap
+## Bootstrapping chezmoi
 
 ```sh
 brew install chezmoi
@@ -28,8 +41,8 @@ chezmoi init --apply \
 persists in `~/.config/chezmoi/chezmoi.toml`, so rerunning `chezmoi init` won't ask
 again.
 
-Git identity follows the directory: repos under `~/canvas/werk/` use the work email
-and repos under `~/canvas/pers/` use the personal one.
+Git identity follows the directory: repos under `~/canvas/work/` use the work email
+and repos under `~/canvas/personal/` use the personal one.
 
 Open a new zsh shell.
 
