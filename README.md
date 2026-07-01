@@ -8,11 +8,18 @@ A collection of personal configuration files, `zsh` environment setups, and cust
 
 ```text
 ├── .zshrc                    # Shell environment, aliases, and functions
+```
+
+```text
+
 └── Raycast scripts/          # Custom standalone utilities
     └── auto-day-name-date.sh # Dynamic natural language date parser
     └── corner.sh             # use hammerspoon to move mouse to window corner (no need to hunt for it and just drag)
     └── down-dock.sh / left-dock.sh # cos I keep shifting my dock for multi monitors
     └── mirror.sh             # mirror images backup
+```
+    
+```text
 ├── .hammerspoon
     └── init.lua
     └── modules
