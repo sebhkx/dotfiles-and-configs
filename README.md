@@ -1,20 +1,24 @@
-# 🚀 dotfiles & configs
+# 🚀 configs | automation
 
-A collection of personal configuration files, `zsh` environment setups, and custom scripting utilities engineered to eliminate repetitive tasks and streamline daily macOS workflows.
+A collection of personal configuration (dot)files, `zsh` environment setups, snippets & scripting utilities to eliminate repetitive tasks and streamline daily workflows
 
 ---
 
 ## 📦 Repository Structure
 
-```text
+```
 ├── .zshrc                    # Shell environment, aliases, and functions
+```
 
+```
 └── raycast-scripts/          # Custom standalone utilities
     └── auto-day-name-date.sh # Dynamic natural language date parser
     └── corner.sh             # use hammerspoon to move mouse to window corner (no need to hunt for it and just drag)
     └── down-dock.sh / left-dock.sh # cos I keep shifting my dock for multi monitors
     └── mirror.sh             # mirror images backup
+```
 
+```
 ├── .hammerspoon
     └── init.lua
     └── modules
@@ -28,84 +32,20 @@ A collection of personal configuration files, `zsh` environment setups, and cust
         └── watcher.lua
 ├── karabiner-elements (~/.config/karabiner/assets/complex_modifications)
     └── caps-f18.json           # let karabiner disable caps and let hammerspoon emulate CAPS LOCK & 2nd layer
+```
 
-├── tampermonkey
+```
+├── tampermonkey: custom JavaScript & CSS injections
 * Enable Developer Mode & Allow User Scrips
     └── Universal Page Tab Renamer
     └── Download Largest Image & Rename based on URL
-
 ```
 
-## Bootstrapping chezmoi
+## jupyter-notebook
 
-```sh
-brew install chezmoi
-chezmoi init --apply \
-    --promptString machineName=<name> \
-    https://github.com/sebhkx/dotfiles-and-scripts.git
-```
+### Overlay on A4 Size PDF # space saving prints for shipping labels
 
-`machineName` becomes the macOS hostname and defaults to the current one. The answer
-persists in `~/.config/chezmoi/chezmoi.toml`, so rerunning `chezmoi init` won't ask
-again.
+- reportlab & PyPDF2
 
-Git identity follows the directory: repos under `~/canvas/work/` use the work email
-and repos under `~/canvas/personal/` use the personal one.
-
-Open a new zsh shell.
-
-`chezmoi apply` installs missing Homebrew packages from `Brewfile` on macOS
-when the `Brewfile` changes. It uses `--no-upgrade`; package upgrades stay
-manual.
-
-## Daily use
-
-Pull and apply the latest committed dotfiles:
-
-```sh
-chezmoi update --verbose
-```
-
-Preview before applying:
-
-```sh
-chezmoi git pull -- --autostash --rebase
-chezmoi diff
-chezmoi apply --verbose
-```
-
-Check local package drift:
-
-```sh
-brew bundle check --no-upgrade --file "$(chezmoi source-path)/Brewfile" --verbose
-brew outdated --greedy
-brew bundle cleanup --file "$(chezmoi source-path)/Brewfile"
-```
-
-Edit source dotfiles directly:
-
-```sh
-chezmoi edit --apply ~/.zshrc
-```
-
-Import a live file back into source:
-
-```sh
-chezmoi add ~/.zshrc
-```
-
-Re-import every drifted managed file at once:
-
-```sh
-chezmoi re-add
-```
-
-Commit from the source repo:
-
-```sh
-chezmoi cd
-git status --short
-git add -A
-git commit -m "Update dotfiles"
-git push
-```
+1. Generate blank A4 pdf
+2. Overlay (smaller pdf) on A4 (default coordinate 0,0 is bottom left) -- to work on top left alignment
