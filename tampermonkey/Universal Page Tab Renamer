@@ -1,0 +1,51 @@
+// ==UserScript==
+// @name         Universal Page Tab Renamer
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Rename tabs to "Page X – Original Title" for any site with /page/X or ?page=X
+// @match        *://*/*
+// @run-at       document-idle
+// ==/UserScript==
+
+(function () {
+    'use strict';
+
+    // Get page number from URL path or query parameter
+    function getPageNumber() {
+        const url = new URL(window.location.href);
+
+        // 1. Check query param ?page=2
+        const paramPage = parseInt(url.searchParams.get('page'), 10);
+        if (!isNaN(paramPage) && paramPage > 1) return paramPage;
+
+        // 2. Check path /page/2
+        const pathMatch = url.pathname.match(/\/page\/(\d+)/i);
+        if (pathMatch && parseInt(pathMatch[1], 10) > 1) return parseInt(pathMatch[1], 10);
+
+        return null; // page 1 or not found
+    }
+
+    // Remove any existing "Page X –" prefix (fuzzy match)
+    function cleanTitle(title) {
+        return title.replace(/^Page\s*\d+\s*[-–]\s*/i, '').trim();
+    }
+
+    function updateTitle() {
+        const page = getPageNumber();
+        if (!page) return; // skip page 1 or missing page number
+
+        const baseTitle = cleanTitle(document.title);
+        document.title = `Page ${page} – ${baseTitle}`;
+    }
+
+    // Initial update
+    updateTitle();
+
+    // Watch for dynamic changes to the title (SPA or WordPress)
+    const observer = new MutationObserver(updateTitle);
+    const titleElement = document.querySelector('title');
+    if (titleElement) {
+        observer.observe(titleElement, { subtree: true, characterData: true, childList: true });
+    }
+
+})();

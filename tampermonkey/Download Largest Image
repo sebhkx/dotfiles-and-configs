@@ -1,0 +1,63 @@
+// ==UserScript==
+// @name         Download Largest Image
+// @namespace    http://tampermonkey.net/
+// @version      1.0
+// @description  Find and download the largest image intelligently renamed
+// @author       You
+// @match        *://*/*
+// @grant        none
+// ==/UserScript==
+
+(function() {
+    'use strict';
+
+    // Create a floating button
+    let btn = document.createElement("button");
+    btn.textContent = "Image";
+    btn.style.position = "fixed";
+    btn.style.bottom = "20px";
+    btn.style.right = "20px";
+    btn.style.zIndex = 9999;
+    btn.style.padding = "10px 15px";
+    btn.style.backgroundColor = "#007bff";
+    btn.style.color = "#fff";
+    btn.style.border = "none";
+    btn.style.borderRadius = "5px";
+    btn.style.cursor = "pointer";
+    document.body.appendChild(btn);
+
+    btn.addEventListener("click", async () => {
+        // 1. Find all images
+        let images = Array.from(document.querySelectorAll("img"));
+        if(images.length === 0){
+            alert("No images found on this page.");
+            return;
+        }
+
+        // 2. Sort by naturalWidth * naturalHeight
+        images.sort((a, b) => (b.naturalWidth * b.naturalHeight) - (a.naturalWidth * a.naturalHeight));
+        let largestImg = images[0];
+        let url = largestImg.src;
+
+        // 3. Extract filename
+        let filename = url.split("/").pop();
+        let match = filename.match(/[A-Z]+-\d+_s\.\w+$/);
+        if(match) filename = match[0];
+
+        // 4. Download image via fetch (handles CORS)
+        try {
+            let response = await fetch(url);
+            let blob = await response.blob();
+            let blobUrl = URL.createObjectURL(blob);
+            let a = document.createElement("a");
+            a.href = blobUrl;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            a.remove();
+            URL.revokeObjectURL(blobUrl);
+        } catch (e) {
+            alert("Download failed: " + e);
+        }
+    });
+})();
