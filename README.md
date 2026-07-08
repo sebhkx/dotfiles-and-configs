@@ -1,4 +1,4 @@
-# 🚀 Dotfiles & Script
+# 🚀 dotfiles & configs
 
 A collection of personal configuration files, `zsh` environment setups, and custom scripting utilities engineered to eliminate repetitive tasks and streamline daily macOS workflows.
 
