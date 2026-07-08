@@ -41,9 +41,14 @@ A collection of personal configuration (dot)files, `zsh` environment setups, sni
     └── Download Largest Image & Rename based on URL
 ```
 
+## Automator
+
+- VCS
+- ImageMagick
+
 ## jupyter-notebook
 
-### Overlay on A4 Size PDF # space saving prints for shipping labels
+### PDF Overlay on A4 Size # space saving prints for shipping labels
 
 - reportlab & PyPDF2
 
