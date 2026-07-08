@@ -27,7 +27,7 @@ A collection of personal configuration files, `zsh` environment setups, and cust
     └── test
         └── watcher.lua
 ├── karabiner-elements (~/.config/karabiner/assets/complex_modifications)
-    └──
+    └── caps-f18.json           # let karabiner disable caps and let hammerspoon emulate CAPS LOCK & 2nd layer
 
 ├── tampermonkey
 * Enable Developer Mode & Allow User Scrips
