@@ -39,6 +39,9 @@ A collection of personal configuration (dot)files, `zsh` environment setups, sni
 * Enable Developer Mode & Allow User Scrips
     └── Universal Page Tab Renamer
     └── Download Largest Image & Rename based on URL
+
+
+    └── Arrow left/right for previous & next page
 ```
 
 ## Automator
