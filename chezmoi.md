@@ -11,10 +11,15 @@ chezmoi init --apply \
 persists in `~/.config/chezmoi/chezmoi.toml`, so rerunning `chezmoi init` won't ask
 again.
 
-Git identity follows the directory: repos under `~/canvas/work/` use the work email
-and repos under `~/canvas/personal/` use the personal one.
+- Open a new zsh shell.
+```
+chezmoi init
 
-Open a new zsh shell.
+chezmoi add ~/.zshrc
+chezmoi add ~/.gitconfig
+chezmoi add ~/.ssh/config # don't commit secrets or keys!
+chezmoi add ~/.hammerspoon # etc paths
+```
 
 `chezmoi apply` installs missing Homebrew packages from `Brewfile` on macOS
 when the `Brewfile` changes. It uses `--no-upgrade`; package upgrades stay
