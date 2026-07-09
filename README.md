@@ -11,6 +11,11 @@ A collection of personal configuration (dot)files, `zsh` environment setups, sni
 ```
 
 ```
+├── .gitconfig                # GitHub account switching by custom alias
+├── .ssh/config               # Add HostNames for ssh identities
+```
+
+```
 └── raycast-scripts/          # Custom standalone utilities
     └── auto-day-name-date.sh # Dynamic natural language date parser
     └── corner.sh             # use hammerspoon to move mouse to window corner (no need to hunt for it and just drag)
@@ -40,9 +45,6 @@ A collection of personal configuration (dot)files, `zsh` environment setups, sni
     └── Universal Page Tab Renamer
     └── Download Largest Image & Rename based on URL
     └── Search keyword page by page until term is found
-
-
-
     └── Arrow left/right for previous & next page
 ```
 
