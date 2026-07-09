@@ -20,6 +20,24 @@ chezmoi add ~/.gitconfig
 chezmoi add ~/.ssh/config # don't commit secrets or keys!
 chezmoi add ~/.hammerspoon # etc paths
 ```
+- 👉 Verify paths
+```
+chezmoi managed
+```
+
+- 👉 Configure VS code as editor
+```
+chezmoi config set editor "code --wait"
+```
+
+- 👉 Alt: Open the entire source directory as a project
+```
+code "$(chezmoi source-path)"
+```
+```
+cd "$(chezmoi source-path)"
+code .         # use Git
+```
 
 `chezmoi apply` installs missing Homebrew packages from `Brewfile` on macOS
 when the `Brewfile` changes. It uses `--no-upgrade`; package upgrades stay
@@ -33,8 +51,8 @@ Pull and apply the latest committed dotfiles:
 chezmoi update --verbose
 ```
 
-Preview before applying:
-
+Preview before applying: **diff + apply**
+*be careful with recursive directories
 ```sh
 chezmoi git pull -- --autostash --rebase
 chezmoi diff
@@ -49,10 +67,11 @@ brew outdated --greedy
 brew bundle cleanup --file "$(chezmoi source-path)/Brewfile"
 ```
 
-Edit source dotfiles directly:
+Edit source dotfiles directly *through chezmoi* 🙏:
 
 ```sh
-chezmoi edit --apply ~/.zshrc
+chezmoi edit ~/.zshrc
+chezmoi edit --apply ~/.zshrc # diff + apply built-in
 ```
 
 Import a live file back into source:
