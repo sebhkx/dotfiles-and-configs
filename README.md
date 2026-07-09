@@ -47,6 +47,9 @@ A collection of personal configuration (dot)files, `zsh` environment setups, sni
     └── Search keyword page by page until term is found
     └── Arrow left/right for previous & next page
 ```
+## Managing version control & back up
+[chezmoi.md](chezmoi.md)
+
 
 ## Automator
 
