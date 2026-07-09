@@ -1,3 +1,8 @@
+# make into shell command - pbpaste
+
+#!/usr/bin/env python3
+import sys
+
 def text_to_tree(text: str) -> str:
     lines = [line.rstrip() for line in text.splitlines() if line.strip()]
     items = []
