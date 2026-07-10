@@ -59,7 +59,7 @@ A collection of personal configuration (dot)files, `zsh` environment setups, sni
 
 ## python-scripting
 
-[py-script.md](py-script.md)
+[py-script.md](/python-scripts/py-script.md)
 
 ## jupyter-notebook
 
