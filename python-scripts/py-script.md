@@ -1,16 +1,15 @@
 ## Contents
 
-- [ ] text-to-tree.py `to-do: convert to script from clipboad & update clipboard`
-- [ ] a4_to_a5_booklet_manual.py `verify it's working`
+- [ ] text-to-tree.py `to-do: convert to script from clipboard & update clipboard`
 - [ ] Image slicing & appending.py `pillow cut and append`
 
 ## Execution
 
 - Ensure packages are installed
-  `python3 -m pip install pypdf`
+  `python3 -m pip install <>`
 
 - To run
-  `python3 a4_to_a5_booklet_manual.py input.pdf output/booklet`
+  `python3 script.py <input>`
 
 ## Implement arguments
 
