@@ -12,12 +12,12 @@
 export LC_ALL=C
 
 SOURCES=(
-  "Date16" 
-  "Data8" 
+  # "Date16" 
+  # "Data8" 
   "Untitled"
 )
 
-BACKUP_ROOT="/Volumes/Data8 32GB"
+BACKUP_ROOT="/Volumes/64GB"
 
 for DRIVE in "${SOURCES[@]}"; do
   SRC="/Volumes/$DRIVE"
